@@ -27,7 +27,10 @@ axios.interceptors.response.use(response => {
       toast.error(data.title);
       break;
     case 500:
-      history.push('/server-error');
+      history.push({
+        pathname: '/server-error',
+        state: { error: data }
+      });
       break;
     default:
       break;
