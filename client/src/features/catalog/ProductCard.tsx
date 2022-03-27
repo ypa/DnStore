@@ -76,6 +76,3 @@ export default function ProudctCard({ product }: Props) {
     </Card>
   );
 }
-function dispatch(arg0: any): any {
-  throw new Error('Function not implemented.');
-}

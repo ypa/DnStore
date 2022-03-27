@@ -13,7 +13,6 @@ import {
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import agent from '../../app/api/agent';
-import { useStoreContext } from '../../app/context/StoreContext';
 import NotFound from '../../app/errors/NotFound';
 import LoadingComponent from '../../app/layout/LoadingComponent';
 import { Product } from '../../app/models/product';

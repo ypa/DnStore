@@ -151,6 +151,3 @@ export default function BasketPage() {
     </>
   );
 }
-function dispatch(arg0: any): any {
-  throw new Error('Function not implemented.');
-}
