@@ -4,7 +4,6 @@ import {
   Radio,
   RadioGroup,
 } from '@mui/material';
-import { string } from 'yup';
 
 interface Props {
   options: any[];
