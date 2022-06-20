@@ -98,6 +98,16 @@ export const catalogSlice = createSlice({
     },
     resetProductParams: (state) => {
       state.productParams = initParams();
+    },
+    setProduct: (state, action) => {
+      productsAdapter.upsertOne(state, action.payload);
+      // resync with server to fix the pagination problem
+      state.productsLoaded = false;
+    },
+    removeProduct: (state, action) => {
+      productsAdapter.removeOne(state, action.payload);
+      // resync with server to fix the pagination problem
+      state.productsLoaded = false;
     }
   },
   extraReducers: (builder => {
@@ -142,4 +152,4 @@ export const catalogSlice = createSlice({
 
 export const productSelectors = productsAdapter.getSelectors((state: RootState) => state.catalog);
 
-export const { setProductParams, resetProductParams, setMetaData, setPageNumber } = catalogSlice.actions;
+export const { setProductParams, resetProductParams, setMetaData, setPageNumber, setProduct, removeProduct } = catalogSlice.actions;
