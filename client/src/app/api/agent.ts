@@ -81,7 +81,7 @@ function createFormData(item: any) {
 const Admin = {
   createProudct: (product: any) => requests.postForm('products', createFormData(product)),
   updateProduct: (product: any) => requests.putForm('products', createFormData(product)),
-  deleteProudct: (id: number) => requests.delete(`products/${id}`),
+  deleteProduct: (id: number) => requests.delete(`products/${id}`),
 }
 
 const Catalog = {
