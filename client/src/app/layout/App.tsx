@@ -26,7 +26,7 @@ import { fetchCurrentUser } from '../../features/account/accountSlice';
 import PrivateRoute from './PrivateRoute';
 import Orders from '../../features/orders/Orders';
 import CheckoutWrapper from '../../features/checkout/CheckoutWrapper';
-import Inventory from '../../features/admin/inventory';
+import Inventory from '../../features/admin/Inventory';
 
 function App() {
   const dispatch = useAppDispatch();
