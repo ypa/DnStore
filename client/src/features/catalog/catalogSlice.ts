@@ -101,9 +101,13 @@ export const catalogSlice = createSlice({
     },
     setProduct: (state, action) => {
       productsAdapter.upsertOne(state, action.payload);
+      // resync with server to fix the pagination problem
+      state.productsLoaded = false;
     },
     removeProduct: (state, action) => {
       productsAdapter.removeOne(state, action.payload);
+      // resync with server to fix the pagination problem
+      state.productsLoaded = false;
     }
   },
   extraReducers: (builder => {
