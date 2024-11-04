@@ -1,34 +1,50 @@
-## To listen to Stripe Webhooks
+## Locally running the app
 
-First add local listener on from [Stripe dashboard](https://dashboard.stripe.com/test/webhooks)
+#### Postgres DB
 
-Install Stripe cli
+Run Postgres DB locally
+
+```sh
+docker run --name dev -e POSTGRES_USER=appuser -e POSTGRES_PASSWORD=secret -p 5432:5432 -d postgres:latest
+```
+
+#### Run app locally on the terminal
+
+Make sure the correct .NET SDK version is installed
+
+```sh
+# Run the API server and client app that was copied into wwwwroot
+$ cd API/
+$ dotnet watch run
+```
+
+#### To listen to Stripe Webhooks
+
+Docs on adding local webhook listeners [Stripe dashboard](https://dashboard.stripe.com/test/webhooks)
+
+Install Stripe cli if you haven't.
 
 ```sh
 $ brew install stripe/stripe-cli/stripe
 ```
 
-Then on your local terminal:
-
 ```sh
-# First have your API server running
-$ cd API/
-$ dotnet watch run
-
-# Then from another terminal
+# In a separate terminal
 $ stripe login
 $ stripe listen -f http://localhost:5000/api/payments/webhook -e charge.succeeded
+# this will allow post back payment from stripe when user checks out order and posts a payment
+# then if successful it'll show up on Stripe dashboard under transactions
 ```
 
-## Postgres DB
-
-Run Postgres DB locally
+## Dockering the app (WIP)
 
 ```sh
-$ pg_ctl -D /usr/local/var/postgres start
+cd API/
+docker build -t vzmm/dnstore .
+docker run --rm -it -p 8080:80 vzmm/dnstore # this is currently failing :(
 ```
 
-## Deploy changes to Heroku
+## Deploy changes to Heroku (Deprecated)
 
 https://dnstore.herokuapp.com
 
