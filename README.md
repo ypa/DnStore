@@ -18,6 +18,9 @@ $ cd API/
 $ dotnet watch run
 ```
 
+- App should be running on: http://localhost:5000
+- Swagger should be on: http://localhost:5000/swagger/index.html
+
 #### To listen to Stripe Webhooks
 
 Docs on adding local webhook listeners [Stripe dashboard](https://dashboard.stripe.com/test/webhooks)
